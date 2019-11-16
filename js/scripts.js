@@ -57,9 +57,8 @@ function generateModal(i) {
     $body.append(modalHTML);
 }
 
-function buttonListener() {
-    $('#modal-close-btn').click(function () { $('.modal-container').hide() });
-}
+
+$(document).on('click', '#modal-close-btn', function () { $('.modal-container').hide() });
 
 
 
