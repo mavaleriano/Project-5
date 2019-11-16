@@ -38,6 +38,7 @@ function cardListener() {
 
 function generateModal(i) {
     let temp = people[i];
+    let dob = `${temp.dob.date.substring(5, 7)}/${temp.dob.date.substring(8, 10)}/${temp.dob.date.substring(0, 4)}`;
     const modalHTML = `
         <div class="modal-container">
             <div class="modal">
@@ -50,13 +51,15 @@ function generateModal(i) {
                 <hr>
                 <p class="modal-text">${temp.cell}</p>
                 <p class="modal-text">${temp.location.street.number} ${temp.location.street.name}, ${temp.location.state} ${temp.location.postcode}</p>
-                <p class="modal-text">Birthday: 10/21/2015</p>
+                <p class="modal-text">Birthday: ${dob}</p>
             </div>
        </div>
     `;
     $body.append(modalHTML);
 }
 
+// Close button listener 
+// https://stackoverflow.com/questions/34896106/attach-event-to-dynamic-elements-in-javascript
 
 $(document).on('click', '#modal-close-btn', function () { $('.modal-container').hide() });
 
